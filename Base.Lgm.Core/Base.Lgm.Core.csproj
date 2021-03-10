@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Extension\" />
+    <Folder Include="Interfaces\Business\BusinessValidations\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Models\Dto\Request\" />
+    <Folder Include="Models\Dto\Response\" />
+    <Folder Include="Models\Entities\" />
+    <Folder Include="Models\Static\" />
+  </ItemGroup>
+
+</Project>
