@@ -6,5 +6,6 @@ namespace Base.Lgm.Core.Models.Dto.Response
 {
     public class UserResponse
     {
+
     }
 }

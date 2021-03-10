@@ -5,9 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Base.Lgm.Business\Base.Lgm.Business.csproj" />
+    <ProjectReference Include="..\Base.Lgm.Core\Base.Lgm.Core.csproj" />
+    <ProjectReference Include="..\ExternalBase.Lgm.Utilities\ExternalBase.Lgm.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
