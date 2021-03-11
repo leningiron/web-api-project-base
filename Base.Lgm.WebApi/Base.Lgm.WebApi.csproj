@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Base.Lgm.Business\Base.Lgm.Business.csproj" />
     <ProjectReference Include="..\Base.Lgm.Core\Base.Lgm.Core.csproj" />
+    <ProjectReference Include="..\Base.Lgm.Repositories\Base.Lgm.Repositories.csproj" />
     <ProjectReference Include="..\ExternalBase.Lgm.Utilities\ExternalBase.Lgm.Utilities.csproj" />
   </ItemGroup>
 

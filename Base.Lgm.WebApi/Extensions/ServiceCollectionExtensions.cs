@@ -1,4 +1,6 @@
-﻿using Base.Lgm.WebApi.Filters;
+﻿using Base.Lgm.Core.Interfaces.Repositories;
+using Base.Lgm.Repositories.Impl;
+using Base.Lgm.WebApi.Filters;
 using ExternalBase.Lgm.Utilities.Impl.ErrorFactory;
 using ExternalBase.Lgm.Utilities.Interfaces;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +18,8 @@ namespace Base.Lgm.WebApi.Extensions
         {
             services
                 .AddSingleton<IHttpErrorFactory, DefaultHttpErrorFactory>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

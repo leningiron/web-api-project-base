@@ -8,8 +8,6 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Extension\" />
     <Folder Include="Interfaces\Business\BusinessValidations\" />
-    <Folder Include="Interfaces\Repositories\" />
-    <Folder Include="Models\Entities\" />
     <Folder Include="Models\Static\" />
   </ItemGroup>
 
