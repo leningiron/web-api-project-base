@@ -11,4 +11,8 @@
     <Folder Include="Models\Static\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalBase.Lgm.Utilities\ExternalBase.Lgm.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

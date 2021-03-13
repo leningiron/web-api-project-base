@@ -1,4 +1,5 @@
-﻿using Base.Lgm.Core.Models.Dto.Request;
+﻿using Base.Lgm.Core.Interfaces.Business;
+using Base.Lgm.Core.Models.Dto.Request;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,13 @@ namespace Base.Lgm.WebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserBusiness userBusiness;
+
+        public UserController(IUserBusiness userBusiness)
+        {
+            this.userBusiness = userBusiness;
+        }
+
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -31,7 +39,10 @@ namespace Base.Lgm.WebApi.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] UserRequest request)
         {
-            return Ok();
+            var result = userBusiness.CreateUser(request);
+            if(result.Data) return Ok();
+
+            return BadRequest(result.Error);
         }
 
         // PUT api/<UserController>/5

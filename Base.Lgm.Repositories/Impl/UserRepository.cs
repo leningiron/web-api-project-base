@@ -14,6 +14,13 @@ namespace Base.Lgm.Repositories.Impl
             new User { IdUser = 3, Email = "cristina@gmail.com"},
             new User { IdUser = 4, Email = "diana@gmail.com"}
         };
+
+        public int? CreateUser(User user)
+        {
+            this.DataMock.Add(user);
+            return null;
+        }
+
         public User GetUser(Predicate<User> filter)
         {
             return this.DataMock.Find(filter);

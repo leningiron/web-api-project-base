@@ -1,4 +1,6 @@
-﻿using Base.Lgm.Core.Interfaces.Repositories;
+﻿using Base.Lgm.Business.Impl;
+using Base.Lgm.Core.Interfaces.Business;
+using Base.Lgm.Core.Interfaces.Repositories;
 using Base.Lgm.Repositories.Impl;
 using Base.Lgm.WebApi.Filters;
 using ExternalBase.Lgm.Utilities.Impl.ErrorFactory;
@@ -20,6 +22,7 @@ namespace Base.Lgm.WebApi.Extensions
                 .AddSingleton<IHttpErrorFactory, DefaultHttpErrorFactory>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserBusiness, UserBusiness>();
 
             return services;
         }
