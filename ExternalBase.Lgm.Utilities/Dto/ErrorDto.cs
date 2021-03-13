@@ -1,4 +1,7 @@
-﻿namespace ExternalBase.Lgm.Utilities.Dto
+﻿using System;
+using System.Net;
+
+namespace ExternalBase.Lgm.Utilities.Dto
 {
     public class ErrorDto
     {

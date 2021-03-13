@@ -4,6 +4,7 @@ using Base.Lgm.Core.Models.Dto.Request;
 using Base.Lgm.Core.Models.Entities;
 using ExternalBase.Lgm.Utilities.Dto;
 using ExternalBase.Lgm.Utilities.Dto.Response;
+using ExternalBase.Lgm.Utilities.Helpers;
 using Mapster;
 
 namespace Base.Lgm.Business.Impl
@@ -22,13 +23,10 @@ namespace Base.Lgm.Business.Impl
             var idResult = userRepository.CreateUser(destObject);
             if (idResult == null)
             {
-                return new GenericReponse<bool> 
+                return new GenericReponse<bool>
                 {
                     Data = false,
-                    Error = new ErrorDto
-                    {
-                        HttpMessage = "Error al registrar el usuario."
-                    }
+                    Error = GenerateErrorHelper.SetError("Error al registrar el usuario.")
                 };
             }
             return new GenericReponse<bool> { Data = true };
