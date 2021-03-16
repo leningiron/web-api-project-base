@@ -23,16 +23,22 @@ namespace Base.Lgm.WebApi.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = userBusiness.GetAllUsers();
+            if (result.Data == null) return NotFound();
+
+            return Ok(result);
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult Get(int id)
         {
-            return "value";
+            var result = userBusiness.GetUser(id);
+            if (result.Data == null) return NotFound();
+
+            return Ok(result);
         }
 
         // POST api/<UserController>

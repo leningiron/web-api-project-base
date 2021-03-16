@@ -25,5 +25,10 @@ namespace Base.Lgm.Repositories.Impl
         {
             return this.DataMock.Find(filter);
         }
+
+        public IList<User> GetUsers()
+        {
+            return this.DataMock;
+        }
     }
 }
