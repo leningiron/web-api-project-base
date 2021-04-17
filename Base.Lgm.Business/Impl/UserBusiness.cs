@@ -7,22 +7,23 @@ using ExternalBase.Lgm.Utilities.Dto.Response;
 using ExternalBase.Lgm.Utilities.Helpers;
 using Mapster;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Base.Lgm.Business.Impl
 {
     public class UserBusiness : IUserBusiness
     {
-        private readonly IUserRepository userRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public UserBusiness(IUserRepository userRepository)
+        public UserBusiness(IUnitOfWork unitOfWork)
         {
-            this.userRepository = userRepository;
+            this.unitOfWork = unitOfWork;
         }
-        public GenericReponse<bool> CreateUser(UserRequest request)
+        public async Task<GenericReponse<bool>> CreateUser(UserRequest request)
         {
             var destObject = request.Adapt<User>();
-            var idResult = userRepository.CreateUser(destObject);
-            if (idResult == null)
+            var idResult = await unitOfWork.UserdRepository.AddAsync(destObject);
+            if (idResult>0)
             {
                 return new GenericReponse<bool>
                 {
@@ -33,9 +34,9 @@ namespace Base.Lgm.Business.Impl
             return new GenericReponse<bool> { Data = true };
         }
 
-        public GenericReponse<IList<UserResponse>> GetAllUsers()
+        public async Task<GenericReponse<IList<UserResponse>>> GetAllUsers()
         {
-            var result = userRepository.GetUsers();
+            var result = await unitOfWork.UserdRepository.GetAllAsync();
 
             if (result == null) return new GenericReponse<IList<UserResponse>>();
 
@@ -45,9 +46,9 @@ namespace Base.Lgm.Business.Impl
             };
         }
 
-        public GenericReponse<UserResponse> GetUser(int id)
+        public async Task<GenericReponse<UserResponse>> GetUser(int id)
         {
-            var result = userRepository.GetUser(x => x.IdUser == id);
+            var result = await unitOfWork.UserdRepository.GetAsync(id);
 
             if(result == null) return new GenericReponse<UserResponse>();
             

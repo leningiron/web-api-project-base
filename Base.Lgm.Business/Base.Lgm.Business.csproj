@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Base.Lgm.Core\Base.Lgm.Core.csproj" />
+    <ProjectReference Include="..\Base.Lgm.Repositories\Base.Lgm.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

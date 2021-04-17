@@ -23,9 +23,9 @@ namespace Base.Lgm.WebApi.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            var result = userBusiness.GetAllUsers();
+            var result = await userBusiness.GetAllUsers();
             if (result.Data == null) return NotFound();
 
             return Ok(result);
@@ -33,9 +33,9 @@ namespace Base.Lgm.WebApi.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public async Task<ActionResult> Get(int id)
         {
-            var result = userBusiness.GetUser(id);
+            var result = await userBusiness.GetUser(id);
             if (result.Data == null) return NotFound();
 
             return Ok(result);
@@ -43,9 +43,9 @@ namespace Base.Lgm.WebApi.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public ActionResult Post([FromBody] UserRequest request)
+        public async Task<ActionResult> Post([FromBody] UserRequest request)
         {
-            var result = userBusiness.CreateUser(request);
+            var result = await userBusiness.CreateUser(request);
             if(result.Data) return Ok();
 
             return BadRequest(result.Error);

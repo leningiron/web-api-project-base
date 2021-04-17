@@ -1,34 +1,16 @@
 ﻿using Base.Lgm.Core.Interfaces.Repositories;
 using Base.Lgm.Core.Models.Entities;
-using System;
-using System.Collections.Generic;
+using Base.Lgm.Core.Models.Static;
+using ExternalBase.Lgm.Utilities.Impl.Base;
+using System.Data;
 
 namespace Base.Lgm.Repositories.Impl
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        public List<User> DataMock { get; set; } = new List<User>
+        public UserRepository(IDbTransaction transaction) : base(TablesSt.Users, transaction)
         {
-            new User { IdUser = 1, Email = "pablito@gmail.com"},
-            new User { IdUser = 2, Email = "ricardo@gmail.com"},
-            new User { IdUser = 3, Email = "cristina@gmail.com"},
-            new User { IdUser = 4, Email = "diana@gmail.com"}
-        };
-
-        public int? CreateUser(User user)
-        {
-            this.DataMock.Add(user);
-            return null;
         }
 
-        public User GetUser(Predicate<User> filter)
-        {
-            return this.DataMock.Find(filter);
-        }
-
-        public IList<User> GetUsers()
-        {
-            return this.DataMock;
-        }
     }
 }

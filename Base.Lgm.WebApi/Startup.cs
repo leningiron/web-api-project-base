@@ -4,17 +4,11 @@ using Base.Lgm.WebApi.Filters;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Base.Lgm.WebApi
 {
@@ -51,6 +45,7 @@ namespace Base.Lgm.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Lgm api 1.0", Version = "v1" });
             });
+            services.AddCustomConfigure(Configuration);
             services.AddCustomServices();
         }
 
